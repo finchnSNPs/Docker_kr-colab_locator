@@ -17,4 +17,4 @@ RUN pip install -r req.txt
 
 RUN chmod -R 777 *
 
-CMD [ "python3"]
+CMD ["/bin/bash"]
