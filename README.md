@@ -22,12 +22,41 @@ Click the RUN! button on the right side; name the container (optional).
 
 Click the >_ button which will open the container in terminal. 
 
+Find the scripts directory. 
+
+`ls scripts`
+
+## Use with Singularity (Apptainer)
+
+Download docker image to be run with singluarity.
+
+Load module first if necessary.
+`module load singularity`
+
+`singularity pull locator.sif docker://finchnsnps/locator:locator_v2`
+
+Open container as a shell with singularity.
+
+`singularity shell --cleanenv locator.sif`
+
+Find locator scripts directory under /
+
+`ls /locator/scripts`
+
+## Test container
+
+See https://github.com/kr-colab/locator.git for details about test data, output files, parameters, visualization, and interpretation. 
+
 Make output directory
 
 `mkdir out/test`
 
 Use test data to test the container
 
-python scripts/locator.py --vcf data/test_genotypes.vcf.gz --sample_data data/test_sample_data.txt --out out/test/test
+In docker: 
 
-See https://github.com/kr-colab/locator.git for details about output files, parameters, visualization, and interpretation. 
+`python scripts/locator.py --vcf data/test_genotypes.vcf.gz --sample_data data/test_sample_data.txt --out out/test/test`
+
+In singularity 
+
+`python /locator/scripts/locator.py --vcf /locator/data/test_genotypes.vcf.gz --sample_data /locator/data/test_sample_data.txt --out out/test/test`
