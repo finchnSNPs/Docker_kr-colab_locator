@@ -28,10 +28,10 @@ Find the scripts directory.
 
 ## Use with Singularity (Apptainer)
 
-Download docker image to be run with singluarity.
-
 Load module first if necessary.
 `module load singularity`
+
+Download docker image to be run with singluarity.
 
 `singularity pull locator.sif docker://finchnsnps/locator:locator_v2`
 
